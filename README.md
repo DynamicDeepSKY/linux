@@ -1,7 +1,7 @@
 ### Dependencies install, obtain kernel source, and setup
 ```
 $sudo apt install git bc bison flex libssl-dev make
-$git clone --depth=1 --branch rpi-5.4.y git@github.com:DynamicDeepSKY/linux.git
+$git clone --depth=1 --branch dev/rpi-5.4.y-fbtft-dds git@github.com:DynamicDeepSKY/linux.git
 $cd linux
 $KERNEL=kernel7l
 $make bcm2711_defconfig
