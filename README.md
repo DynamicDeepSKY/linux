@@ -2,17 +2,23 @@
 $sudo apt install git bc bison flex libssl-dev make
 $git clone --depth=1 --branch rpi-5.4.y git@github.com:DynamicDeepSKY/linux.git
 $cd linux
-$make menuconfig (save w/o any change)
 $KERNEL=kernel7l
 $make bcm2711_defconfig
 $vim .config
-CONFIG_LOCALVERSION="-v7l-DDS-KERNEL-FBTFT"
+```
+change CONFIG_LOCALVERSION as some unique value (e.g.,)
+
+`CONFIG_LOCALVERSION="-v7l-DDS-KERNEL-FBTFT"`
+
+```
 $make -j4 zImage modules dtbs
 $sudo make modules_install
 $sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/
 $sudo cp arch/arm/boot/dts/overlays/README /boot/overlays/
 $sudo cp arch/arm/boot/zImage /boot/$KERNEL.img
+$sudo reboot
 ```
+After bootup, `uname -r` should show `v7l-DDS-KERNEL-FBTFT` string in the kernel version.
 
 
 Linux kernel
